@@ -1,17 +1,43 @@
+import { React, Component } from 'react';
+
 import Deck from './common/Deck';
 import ListItem from './common/ListItem';
 
-function Restaurants() {
-  const restaurantItems = [<ListItem name='Название ресторана1' description='Описание ресторана1' />, 
-                           <ListItem name='Название ресторана2' description='Описание ресторана2' />,
-                           <ListItem name='Название ресторана3' description='Описание ресторана3' />];
+import adminService from '../services/AdminService';
 
-  return (
-    <>
-      <p>Рестораны</p>
-      <Deck cards={restaurantItems} />
-    </>
-  );
+class Restaurants extends Component {
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      restaurants: []
+    };
+  }
+
+  componentDidMount() {
+    this._loadRestaurants();
+  }
+
+  render() {
+    const restaurantItems = this.state.restaurants.map(restaurant => <ListItem name={restaurant.name} description={restaurant.description} key={restaurant.name} />);
+
+    return (
+      <>
+        <Deck cards={restaurantItems} />
+      </>
+    );
+  }
+
+  _loadRestaurants() {
+    adminService.getAllRestaurants().then(restaurants => {
+      this.setState({
+        restaurants
+      });
+    });
+
+  }
+
 }
 
 export default Restaurants;
