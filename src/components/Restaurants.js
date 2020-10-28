@@ -1,6 +1,6 @@
 import { React, Component } from 'react';
 
-import Deck from './common/Deck';
+import PaginatedDeck from './common/PaginatedDeck';
 import ListItem from './common/ListItem';
 
 import adminService from '../services/AdminService';
@@ -20,11 +20,11 @@ class Restaurants extends Component {
   }
 
   render() {
-    const restaurantItems = this.state.restaurants.map(restaurant => <ListItem name={restaurant.name} description={restaurant.description} key={restaurant.name} />);
+    const restaurantItems = this.state.restaurants.map(restaurant => <ListItem name={restaurant.name} description={restaurant.description} imageUrl={restaurant.imageUrl} key={restaurant.name} />);
 
     return (
       <>
-        <Deck cards={restaurantItems} />
+        <PaginatedDeck cards={restaurantItems} />
       </>
     );
   }
