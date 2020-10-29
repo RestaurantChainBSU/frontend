@@ -1,8 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
 import { NavLink } from 'react-router-dom';
 
 function Header() {
@@ -15,11 +12,6 @@ function Header() {
             <NavLink to="/dishes" className="nav-link">Блюда</NavLink>
             <NavLink to="/orders" className="nav-link">Заказы</NavLink>
           </Nav>
-
-          <Form inline>
-            <FormControl type="text" placeholder="Поиск" className="mr-sm-2" />
-            <Button variant="outline-success">Поиск</Button>
-          </Form>
           
         </Navbar.Collapse>
     </Navbar>

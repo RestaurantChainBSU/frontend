@@ -30,7 +30,7 @@ class PaginatedDeck extends Component {
 
       return (
         <>
-          <CardDeck style={{ height: '1000px', width: '80%', margin: 'auto', marginTop: '30px', marginBottom: '30px', justifyContent: 'center' }} >
+          <CardDeck style={{ height: '800px', width: '80%', margin: 'auto', marginTop: '30px', marginBottom: '30px', justifyContent: 'center' }} >
               {cards.slice(8 * (currentPage - 1), 8 * (currentPage - 1) + 8)}
           </CardDeck>
   
@@ -43,6 +43,8 @@ class PaginatedDeck extends Component {
   }
 
   _handlePageClick(pageNum) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     this.setState({
       'currentPage': pageNum,
     })
