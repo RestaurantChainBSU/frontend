@@ -29,7 +29,7 @@ class Restaurants extends Component {
       restaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(searchQuery.toLowerCase()));
     }
 
-    const restaurantItems = restaurants.map(restaurant => <ListItem name={restaurant.name} description={restaurant.description} imageUrl={restaurant.imageUrl} key={restaurant.name} />);
+    const restaurantItems = restaurants.map(restaurant => <ListItem detailLink={`/restaurants/${restaurant.id}`} name={restaurant.rest_name} description={restaurant.rest_descr} imageUrl={restaurant.image_link} key={restaurant.rest_name} handleDeleteButtonClick={() => this._handleDeleteRestaurantClick(restaurant.id) } />);
     
     return (
       <>
@@ -55,6 +55,11 @@ class Restaurants extends Component {
       });
     });
 
+  }
+
+  _handleDeleteRestaurantClick(id) {
+    adminService.deleteRestaurantById(id);
+    window.location.reload();
   }
 
 }

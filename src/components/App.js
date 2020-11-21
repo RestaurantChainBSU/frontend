@@ -11,6 +11,7 @@ import RestaurantDetail from './RestaurantDetail';
 import Dishes from './Dishes';
 import DishDetail from './DishDetail';
 import Orders from './Orders';
+import NewRestaurant from './NewRestaurant';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
       <Switch>
         <Route exact path='/restaurants' component={Restaurants} />
         <Route exact path='/restaurants/:id' component={RestaurantDetail} />
+
+        <Route exact path='/new-restaurant' component={NewRestaurant} />
 
         <Route exact path='/dishes' component={Dishes} />
         <Route exact path='/dishes/:id' component={DishDetail} />
