@@ -91,6 +91,17 @@ class AdminService {
       .then(body => body.id);
   }
 
+  async loginAdmin(login, password) {
+    return fetch(`${this.HOST}/users/${login}/${password}`)
+      .then(result => {
+        if (result.ok) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+  }
+
 }
 
 const adminService = new AdminService();
