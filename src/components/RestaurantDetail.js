@@ -45,6 +45,14 @@ class RestaurantDetail extends Component {
               <Form.Control type="text" defaultValue={restaurant.image_link} disabled={!this.state.editable}
                 onChange={ event =>  this._updateRestaurantField('image_link', event.target.value) } />
 
+              <Form.Label style={{ fontSize: '30px', marginTop: '20px' }}>Широта</Form.Label>
+              <Form.Control type="text" defaultValue={restaurant.latitude} disabled={!this.state.editable}
+                onChange={ event =>  this._updateRestaurantField('latitude', event.target.value) } />
+
+              <Form.Label style={{ fontSize: '30px', marginTop: '20px' }}>Долгота</Form.Label>
+              <Form.Control type="text" defaultValue={restaurant.longitude} disabled={!this.state.editable}
+                onChange={ event =>  this._updateRestaurantField('longitude', event.target.value) } />    
+
               {this.state.editable &&
                 <Button style={{ marginTop: '30px' }} onClick={ () => this._handleSaveChangesClick() }>Сохранить</Button>
               }

@@ -26,7 +26,7 @@ class Restaurants extends Component {
     let restaurants = this.state.restaurants;
     const searchQuery = this.state.searchQuery;
     if (searchQuery) {
-      restaurants = restaurants.filter(restaurant => restaurant.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      restaurants = restaurants.filter(restaurant => restaurant.rest_name.toLowerCase().includes(searchQuery.toLowerCase()));
     }
 
     const restaurantItems = restaurants.map(restaurant => <ListItem detailLink={`/restaurants/${restaurant.id}`} name={restaurant.rest_name} description={restaurant.rest_descr} imageUrl={restaurant.image_link} key={restaurant.rest_name} handleDeleteButtonClick={() => this._handleDeleteRestaurantClick(restaurant.id) } />);
@@ -57,8 +57,8 @@ class Restaurants extends Component {
 
   }
 
-  _handleDeleteRestaurantClick(id) {
-    adminService.deleteRestaurantById(id);
+  async _handleDeleteRestaurantClick(id) {
+    await adminService.deleteRestaurantById(id);
     window.location.reload();
   }
 

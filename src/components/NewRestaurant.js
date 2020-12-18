@@ -15,6 +15,8 @@ class NewRestaurant extends Component {
         address: '',
         rest_descr: '',
         image_link: '',
+        longitude: 0,
+        latitude: 0,
       }
     };
   }
@@ -39,6 +41,14 @@ class NewRestaurant extends Component {
             <Form.Label style={{ fontSize: '30px', marginTop: '20px' }}>Ссылка на изображение</Form.Label>
             <Form.Control type="text" placeholder='Ссылка на изображение'
               onChange={ event =>  this._updateRestaurantField('image_link', event.target.value) }  />
+
+            <Form.Label style={{ fontSize: '30px', marginTop: '20px' }}>Широта</Form.Label>
+            <Form.Control type="text" placeholder='Широта'
+              onChange={ event =>  this._updateRestaurantField('latitude', parseFloat(event.target.value)) }  />
+
+            <Form.Label style={{ fontSize: '30px', marginTop: '20px' }}>Долгота</Form.Label>
+            <Form.Control type="text" placeholder='Долгота'
+              onChange={ event =>  this._updateRestaurantField('longitude', parseFloat(event.target.value)) }  />    
 
             <Button style={{ marginTop: '30px' }} onClick={ () => this._handleCreateRestaurantClick() }>Создать</Button>
           </Form.Group>
