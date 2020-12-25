@@ -1,7 +1,7 @@
 
 class AdminService {
 
-  HOST = 'http://35.194.36.11:8080';
+  HOST = 'http://34.68.17.134:8080';
 
   async getAllRestaurants() {
     return fetch(`${this.HOST}/restaurants`)
@@ -48,7 +48,7 @@ class AdminService {
   }
 
   async getAllDishes() {
-    return fetch(`${this.HOST}/dishes/`)
+    return fetch(`${this.HOST}/dishes/all`)
               .then(result => {
                 return result.json()
               });
@@ -63,7 +63,7 @@ class AdminService {
     const id = dish.id;
     delete dish.id;
 
-    return fetch(`${this.HOST}/restaurants/${id}`, {
+    return fetch(`${this.HOST}/dishes/${id}`, {
       method: 'POST',
       headers: {  
         "Content-type": "application/json"  
@@ -100,6 +100,13 @@ class AdminService {
           return false;
         }
       });
+  }
+
+  async getAllOrders() {
+    return fetch(`${this.HOST}/orders/all`)
+    .then(result => {
+      return result.json()
+    });
   }
 
 }

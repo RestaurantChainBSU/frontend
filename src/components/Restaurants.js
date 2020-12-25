@@ -59,7 +59,10 @@ class Restaurants extends Component {
 
   async _handleDeleteRestaurantClick(id) {
     await adminService.deleteRestaurantById(id);
-    window.location.reload();
+    this.setState({
+      restaurants: this.state.restaurants.filter(restaurant => restaurant.id !== id)
+    })
+    this.props.history.push(`/restaurants`);
   }
 
 }

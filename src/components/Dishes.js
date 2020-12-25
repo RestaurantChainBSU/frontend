@@ -59,7 +59,10 @@ class Dishes extends Component {
 
   async _handleDeleteDishClick(id) {
     await adminService.deleteDishById(id);
-    window.location.reload();
+    this.setState({
+      dishes: this.state.dishes.filter(dish => dish.id !== id)
+    });
+    this.props.history.push(`/dishes`);
   }
 
 }

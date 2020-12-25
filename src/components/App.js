@@ -15,6 +15,7 @@ import Orders from './Orders';
 import Login from './Login';
 import NewRestaurant from './NewRestaurant';
 import { Component } from 'react';
+import NewDish from './NewDish';
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
@@ -47,6 +48,7 @@ class App extends Component {
           <PrivateRoute authed={this.state.authed} exact path='/restaurants/:id' component={RestaurantDetail} />
   
           <PrivateRoute authed={this.state.authed} exact path='/new-restaurant' component={NewRestaurant} />
+          <PrivateRoute authed={this.state.authed} exact path='/new-dish' component={NewDish} />
   
           <PrivateRoute authed={this.state.authed} exact path='/dishes' component={Dishes} />
           <PrivateRoute authed={this.state.authed} exact path='/dishes/:id' component={DishDetail} />

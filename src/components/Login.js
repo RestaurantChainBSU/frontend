@@ -18,7 +18,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Form>
+      <Form style={{ width: '20%', marginLeft: '30px' }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Логин</Form.Label>
           <Form.Control placeholder="Введите логин администратора" onChange={(event) => this._handleLoginChange(event.target.value) } />

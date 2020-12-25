@@ -86,7 +86,7 @@ class RestaurantDetail extends Component {
     });
 
     await adminService.updateRestaurant(this.state.restaurant);
-    window.location.reload();
+    this.props.history.push(`/restaurants/${this.id}`);
   }
 
   _loadRestaurant() {
